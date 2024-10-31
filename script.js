@@ -35,6 +35,7 @@ btnNext.addEventListener('click', function () {
 
 
 
+
 function ShowQuestion2() {
     Allopt.forEach(opt => opt.style.backgroundColor = '');
     question.innerHTML = '2. Bagian tumbuhan yang berfungsi untuk menyerap air dan mineral dari tanah adalah?';
