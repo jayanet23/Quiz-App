@@ -1,26 +1,29 @@
 const btnNext = document.querySelector('.btn-next');
+const btnPlay = document.querySelector('.btn-playagain');
 const Allopt = document.querySelectorAll('.opt');
 const question = document.querySelector('.question h3');
 
 let score = 0;
+btnPlay.style.display = 'none';
+
 
 function answer() {
-    
+
     Allopt.forEach(opt => {
         opt.addEventListener('click', function (e) {
 
             Allopt.forEach(opt => opt.style.backgroundColor = '');
-            if(e.target.classList.contains('true')) {
+            if (e.target.classList.contains('true')) {
                 e.target.style.backgroundColor = 'green';
-                score ++;
+                score++;
             } else {
                 e.target.style.backgroundColor = 'red';
                 Allopt.forEach(opt => {
-                    if(opt.classList.contains('true')) {
+                    if (opt.classList.contains('true')) {
                         opt.style.backgroundColor = 'green';
                     }
                 })
-            } 
+            }
         })
     })
 }
@@ -108,10 +111,21 @@ function ShowQuestion4() {
 
 
     btnNext.addEventListener('click', function () {
-        question.innerHTML = `Your scored ${score} out of 4!`;
-        Allopt.forEach(opt => {
-            opt.parentElement.remove();
-            btnNext.style.display = 'none';
-        })
+        showPoin();
     });
 };
+
+
+function showPoin() {
+    question.innerHTML = `Your scored ${score} out of 4!`;
+    Allopt.forEach(opt => {
+        opt.parentElement.remove();
+    })
+    btnNext.style.display ='none';
+    btnPlay.style.display ='block';
+}
+
+btnPlay.addEventListener('click', function () {
+    location.reload();
+})
+
