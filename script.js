@@ -14,13 +14,13 @@ function answer() {
 
             Allopt.forEach(opt => opt.style.backgroundColor = '');
             if (e.target.classList.contains('true')) {
-                e.target.style.backgroundColor = 'green';
+                e.target.style.backgroundColor = '#2ded6d';
                 score++;
             } else {
-                e.target.style.backgroundColor = 'red';
+                e.target.style.backgroundColor = '#ef7474';
                 Allopt.forEach(opt => {
                     if (opt.classList.contains('true')) {
-                        opt.style.backgroundColor = 'green';
+                        opt.style.backgroundColor = '#2ded6d';
                     }
                 })
             }
